@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "personnalisation-admin-django"
+version = "0.1.0"
+description = "Package Django pour custom admin avec graphs"
+readme = "README.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [{ name = "Christ", email = "christ@example.com" }]
+keywords = ["django", "admin", "chartjs"]
+classifiers = ["Framework :: Django", "Programming Language :: Python :: 3"]
+dependencies = ["django>=4.2"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/custom_admin"]
+
+[tool.hatch.build.targets.sdist]
+include = ["/src/custom_admin/static", "/src/custom_admin/templates"]
