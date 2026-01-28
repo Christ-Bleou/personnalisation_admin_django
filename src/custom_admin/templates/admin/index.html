@@ -1,21 +1,81 @@
 {% extends "admin/base_site.html" %}
 {% load admin_charts %}
+
 {% block content %}
-<div class="container-fluid mt-4">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <button class="btn btn-outline-light me-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar">
+            <i class="fas fa-bars"></i> Menu
+        </button>
+        <span class="navbar-brand">Tableau de Bord</span>
+    </div>
+</nav>
+
+<div class="offcanvas offcanvas-start" tabindex="-1" id="sidebar">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Administration</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <ul class="nav flex-column">
+            {% for app in app_list %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ app.app_url }}"><strong>{{ app.name }}</strong></a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+<div class="container-fluid">
     <div class="row">
         {% for config in chart_configs %}
         <div class="col-md-6 mb-4">
-            <div class="card shadow-sm">
-                <div class="card-header bg-white"><h5>{{ config.title }}</h5></div>
-                <div class="card-body"><canvas id="chart-{{ config.id }}"></canvas></div>
+            <div class="card shadow-sm h-100">
+                <div class="card-header bg-white">
+                    <h5 class="card-title mb-0">{{ config.title }}</h5>
+                </div>
+                <div class="card-body" style="min-height: 300px;">
+                    <canvas id="chart-{{ config.id }}" 
+                            data-type="{{ config.chart_type }}" 
+                            data-config='{% get_chart_data config %}'>
+                    </canvas>
+                </div>
             </div>
-            <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const ctx = document.getElementById("chart-{{ config.id }}").getContext("2d");
-                new Chart(ctx, { type: "{{ config.chart_type }}", data: {% get_chart_data config %} });
-            });
-            </script>
+        </div>
+        {% empty %}
+        <div class="col-12">
+            <p class="alert alert-info">Aucun graphique configuré. Ajoutez-en dans l'administration.</p>
+        </div>
         {% endfor %}
     </div>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const canvases = document.querySelectorAll('canvas[id^="chart-"]');
+        
+        canvases.forEach(canvas => {
+            try {
+                const chartType = canvas.getAttribute('data-type');
+                const chartData = JSON.parse(canvas.getAttribute('data-config'));
+
+                new Chart(canvas.getContext('2d'), {
+                    type: chartType,
+                    data: chartData,
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            legend: { position: 'bottom' }
+                        }
+                    }
+                });
+            } catch (e) {
+                console.error("Erreur lors du rendu du graphique :", e);
+            }
+        });
+    });
+</script>
 {% endblock %}

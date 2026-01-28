@@ -1,6 +1,11 @@
 from django.contrib import admin
 from .models import AdminChart
 
+# Personnalisation de l'instance par défaut
+admin.site.site_header = "Dashboard Personnalisé"
+admin.site.site_title = "Admin"
+admin.site.index_title = "Bienvenue sur votre Dashboard"
+
 @admin.register(AdminChart)
 class AdminChartAdmin(admin.ModelAdmin):
     list_display = ("title", "app_label", "model_name", "chart_type")

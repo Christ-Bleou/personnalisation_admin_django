@@ -1,7 +1,7 @@
 from django.db import models
 
 class AdminChart(models.Model):
-    CHART_TYPES = [("bar", "Bar Chart"), ("line", "Line Chart"), ("pie", "Pie Chart")]
+    CHART_TYPES = [("bar", "Bar Chart"), ("line", "Line Chart"), ("pie", "Pie Chart"), ('doughnut', 'Doughnut')]
     title = models.CharField(max_length=100)
     app_label = models.CharField(max_length=100)
     model_name = models.CharField(max_length=100)
