@@ -1,0 +1,25 @@
+/* Ajustements pour l'intégration Bootstrap dans Django Admin */
+body {
+    background-color: #f8f9fc;
+}
+
+#content-main {
+    padding: 20px;
+}
+
+.card {
+    border: none;
+    border-radius: 0.75rem;
+}
+
+.card-header {
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+/* On masque les éléments natifs de Django qui font doublon */
+.breadcrumbs {
+    background: transparent;
+    border: none;
+    padding: 0.75rem 0;
+}
