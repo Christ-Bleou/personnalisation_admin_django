@@ -1,0 +1,9 @@
+:root {
+    --admin-primary: #4e73df;      /* Bleu Bootstrap */
+    --admin-secondary: #858796;
+    --admin-bg: #f8f9fc;
+    --admin-sidebar-bg: #2e59d9;
+    --admin-sidebar-text: #ffffff;
+    --admin-card-header: #f8f9fc;
+    --admin-accent: #375ada;
+}

@@ -1,0 +1,9 @@
+:root {
+    --admin-primary: #0077be;      /* Bleu Océan */
+    --admin-secondary: #00a0e9;
+    --admin-bg: #e0f2f1;           /* Fond bleuté très clair */
+    --admin-sidebar-bg: #002147;   /* Bleu Marine profond */
+    --admin-sidebar-text: #ffffff;
+    --admin-card-header: #ffffff;
+    --admin-accent: #005f8d;
+}

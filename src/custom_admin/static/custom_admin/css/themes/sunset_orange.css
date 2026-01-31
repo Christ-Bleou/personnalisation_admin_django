@@ -1,0 +1,9 @@
+:root {
+    --admin-primary: #e74a3b;      /* Rouge-Orange */
+    --admin-secondary: #f6c23e;
+    --admin-bg: #fff5f2;
+    --admin-sidebar-bg: #5a191b;   /* Bordeaux sombre */
+    --admin-sidebar-text: #ffffff;
+    --admin-card-header: #ffffff;
+    --admin-accent: #be3827;
+}

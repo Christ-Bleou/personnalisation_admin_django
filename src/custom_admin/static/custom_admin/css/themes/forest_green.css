@@ -1,0 +1,9 @@
+:root {
+    --admin-primary: #1cc88a;      /* Vert forêt */
+    --admin-secondary: #36b9cc;
+    --admin-bg: #f0f4f1;
+    --admin-sidebar-bg: #1a4731;   /* Vert très sombre */
+    --admin-sidebar-text: #ffffff;
+    --admin-card-header: #ffffff;
+    --admin-accent: #169b6b;
+}

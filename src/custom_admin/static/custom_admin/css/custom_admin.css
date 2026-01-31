@@ -1,25 +1,28 @@
-/* Ajustements pour l'intégration Bootstrap dans Django Admin */
+/* src/custom_admin/static/custom_admin/css/custom_admin.css */
+
 body {
-    background-color: #f8f9fc;
+    background-color: var(--admin-bg) !important;
 }
 
-#content-main {
-    padding: 20px;
+.navbar-custom {
+    background: linear-gradient(90deg, var(--admin-primary) 0%, var(--admin-accent) 100%) !important;
 }
 
-.card {
-    border: none;
-    border-radius: 0.75rem;
+.offcanvas, #sidebar-wrapper {
+    background-color: var(--admin-sidebar-bg) !important;
+    color: var(--admin-sidebar-text) !important;
 }
 
 .card-header {
-    background-color: #f8f9fc;
-    border-bottom: 1px solid #e3e6f0;
+    background-color: var(--admin-card-header) !important;
+    border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
-/* On masque les éléments natifs de Django qui font doublon */
-.breadcrumbs {
-    background: transparent;
-    border: none;
-    padding: 0.75rem 0;
+.text-primary {
+    color: var(--admin-primary) !important;
+}
+
+.btn-primary {
+    background-color: var(--admin-primary) !important;
+    border-color: var(--admin-primary) !important;
 }

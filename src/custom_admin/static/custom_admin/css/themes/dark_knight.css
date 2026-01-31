@@ -1,0 +1,10 @@
+:root {
+    --admin-primary: #f6c23e;      /* Jaune doré */
+    --admin-secondary: #2c2f33;
+    --admin-bg: #1a1b1e;           /* Fond très sombre */
+    --admin-sidebar-bg: #121212;
+    --admin-sidebar-text: #e0e0e0;
+    --admin-card-header: #2c2f33;
+    --admin-accent: #d4a017;
+}
+/* Note: Pour ce thème, il faudra peut-être forcer la couleur du texte global en blanc */
